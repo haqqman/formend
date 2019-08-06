@@ -12,12 +12,9 @@ Author URL: https://haqqman.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Deploy, configure and manage form endpoints." />
-    <link rel="icon" href="{{ asset('images/logo.svg') }}">
 
     <!-- CSS
-    @TODO change mix to asset...
     ================================================== -->
-{{--    <link rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/green.css') }}">
 
@@ -45,14 +42,16 @@ Author URL: https://haqqman.com
 
                     <!-- Logo -->
                     <div id="logo">
-                        <a href="index.html"><img src="{{ asset('images/logo.svg') }}" alt=""></a>
+                        <a href="index.html"><img src="images/logo.svg" alt=""></a>
                     </div>
 
                 </div>
                 <!-- Left Side Content / End -->
 
+
                 <!-- Right Side Content / End -->
                 <div class="right-side">
+
                     <!-- Mobile Navigation Button --
                     <span class="mmenu-trigger">
                         <button class="hamburger hamburger--collapse" type="button">
@@ -61,14 +60,19 @@ Author URL: https://haqqman.com
                             </span>
                         </button>
                     </span>-->
+
                 </div>
                 <!-- Right Side Content / End -->
+
             </div>
         </div>
         <!-- Header / End -->
+
     </header>
     <div class="clearfix"></div>
     <!-- Header Container / End -->
+
+
 
     <!-- Content
     ================================================== -->
@@ -90,6 +94,7 @@ Author URL: https://haqqman.com
             </div>
         </div>
     </div>
+
 
     <!-- Page Content
     ================================================== -->
@@ -130,12 +135,14 @@ Author URL: https://haqqman.com
         </div>
     </div>
 
+
     <!-- Spacer -->
     <div class="margin-top-70"></div>
     <!-- Spacer / End-->
 
 </div>
 <!-- Wrapper / End -->
+
 
 <!-- Sign In Popup
 ================================================== -->
@@ -178,6 +185,7 @@ Author URL: https://haqqman.com
                 <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="login-form">Continue <i class="icon-material-outline-arrow-right-alt"></i></button>
 
             </div>
+
             <!-- Register -->
             <div class="popup-tab-content" id="register">
 
