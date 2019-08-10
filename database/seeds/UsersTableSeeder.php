@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ionwarez@gmail.com',
             'pin' => '2255'
         ]);
-        
+
         factory(User::class)->create([
             'email' => 'webmaster@haqqman.com',
             'password' => bcrypt('@techb0mb89*'),
