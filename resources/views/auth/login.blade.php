@@ -35,14 +35,23 @@
                 <div class="login-register-page">
                     <!-- Welcome Text -->
                     <div class="welcome-text">
+                        @if($errors->has('authFailed'))
+                            <h4 class="error">Username or password is invalid</h4>
+                        @elseif($errors->has('tooManyLoginAttempts'))
+                            <h4>You have too many login attempt.</h4>
+                        @endif
+                        @if(session()->has('loggedOut'))
+                            <h4>Hurray! You've been successfully logged out.</h4>
+                        @endif
                         <h3>Login to manage form endpoints!</h3>
                     </div>
 
                     <!-- Form -->
-                    <form method="post" id="login-form">
+                    <form method="post" id="login-form" action="{{ route('login') }}">
+                        {{ csrf_field() }}
                         <div class="input-with-icon-left">
                             <i class="icon-feather-user"></i>
-                            <input type="text" class="input-text with-border" name="username" id="username" placeholder="Username" required/>
+                            <input type="text" class="input-text with-border" name="email" id="username" placeholder="Username"/>
                         </div>
 
                         <div class="input-with-icon-left">
