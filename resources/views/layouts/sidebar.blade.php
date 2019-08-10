@@ -1,3 +1,6 @@
+@if(!isset($active))
+    @php($active = 'dashboard')
+@endif
 <!-- Dashboard Sidebar -->
 <div class="dashboard-sidebar">
     <div class="dashboard-sidebar-inner" data-simplebar>
@@ -18,13 +21,21 @@
                 <div class="dashboard-nav-inner">
 
                     <ul data-submenu-title="Get Started">
-                        <li><a href="dashboard.html"><i class="icon-line-awesome-home"></i> Dashboard</a></li>
+                        <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
+                            <a href="dashboard.html"><i class="icon-line-awesome-home"></i> Dashboard</a>
+                        </li>
                     </ul>
 
                     <ul data-submenu-title="Configure">
-                        <li class="active"><a href="setup-domains.html"><i class="icon-line-awesome-globe"></i> Setup Domains</a></li>
-                        <li><a href="manage-domains.html"><i class="icon-material-outline-settings-input-component"></i> Manage Domains</a></li>
-                        <li><a href="email-settings.html"><i class="icon-line-awesome-gear"></i> Email Settings</a></li>
+                        <li class="{{ $active == 'setup-domains' ? 'active' : '' }}">
+                            <a href="setup-domains.html"><i class="icon-line-awesome-globe"></i> Setup Domains</a>
+                        </li>
+                        <li class="{{ $active == 'manage-domains' ? 'active' : '' }}">
+                            <a href="manage-domains.html"><i class="icon-material-outline-settings-input-component"></i> Manage Domains</a>
+                        </li>
+                        <li class="{{ $active == 'email-settings' ? 'active' : '' }}">
+                            <a href="email-settings.html"><i class="icon-line-awesome-gear"></i> Email Settings</a>
+                        </li>
                     </ul>
 
                 </div>
