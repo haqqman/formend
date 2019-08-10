@@ -49,6 +49,11 @@ class User extends Authenticatable
 
     public function options()
     {
-        return $this->hasOne(UsersOption::class);
+        return $this->hasOne(UsersOption::class, 'user_id', 'id');
+    }
+
+    public function isPinEnabled()
+    {
+        return $this->options()->first()->enable_pin ? true : false;
     }
 }
