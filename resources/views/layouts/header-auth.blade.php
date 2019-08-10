@@ -119,7 +119,7 @@
 
                             <ul class="user-menu-small-nav">
                                 <li><a href="settings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
-                                <li><a href="logout.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+                                <li><a href="{{ route('logout') }}"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
                             </ul>
 
                         </div>
