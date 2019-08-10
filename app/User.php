@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * @var array
+     */
     protected $dispatchesEvents = [
         /*
          * Refer to UserRegistered Event for initializations and actions
@@ -47,11 +50,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * A user has one option row.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function options()
     {
         return $this->hasOne(UsersOption::class, 'user_id', 'id');
     }
 
+    /**
+     * Helper to check if user has PIN verification option enabled.
+     * @return bool
+     */
     public function isPinEnabled()
     {
         return $this->options()->first()->enable_pin ? true : false;

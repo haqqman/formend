@@ -29,6 +29,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->only(['logout']);
+        $this->middleware('guest')->except(['logout']);
     }
 
     /**
@@ -77,9 +78,10 @@ class LoginController extends Controller
     /**
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->forget('pin-verified');
         session()->flash('loggedOut', true);
         return redirect($this->logoutRedirectTo);
     }
