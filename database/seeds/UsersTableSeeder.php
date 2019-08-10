@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,13 +15,13 @@ class UsersTableSeeder extends Seeder
     {
         factory(User::class)->create([
             'email' => 'ionwarez@gmail.com',
-            'pin' => '2255'
+            'pin' => Hash::make('2255'),
         ]);
 
         factory(User::class)->create([
             'email' => 'webmaster@haqqman.com',
-            'password' => bcrypt('@techb0mb89*'),
-            'pin' => '134381'
+            'password' => Hash::make('@techb0mb89*'),
+            'pin' => Hash::make('134381'),
         ]);
     }
 }

@@ -16,7 +16,7 @@ class CreateUsersOptionsTable extends Migration
         Schema::create('users_options', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->boolean('enable_pin')->default(false);
+            $table->boolean('enable_pin')->default(true);
             $table->timestamps();
 
             /*
