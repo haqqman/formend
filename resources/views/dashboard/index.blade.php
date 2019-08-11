@@ -8,9 +8,11 @@
     <!-- Dashboard Headline -->
     <div class="dashboard-headline">
         <h3>URL Form Endpoint</h3>
-        <span>
+        <span id="endpoint-text">
             https://formend.haqqman.com/s/{{ $user->endpoint->key }}
-            <a href="#small-dialog"><i class="icon-material-outline-file-copy"></i></a>
+            <a href="#" id="endpoint-btn" data-clipboard-target="#endpoint-text">
+                <i class="icon-material-outline-file-copy"></i>
+            </a>
         </span>
 
         <!-- Breadcrumbs -->
@@ -53,4 +55,9 @@
 
     </div>
     <!-- Dashboard Content / End -->
+@endsection
+@section('after_script')
+    <script>
+        new ClipboardJS('#endpoint-btn')
+    </script>
 @endsection
