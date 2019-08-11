@@ -51,6 +51,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * A user only has one endpoint assigned to them.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function endpoint()
+    {
+        return $this->hasOne(Endpoint::class, 'user_id', 'id');
+    }
+
+    /**
      * A user has one option row.
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -65,6 +75,6 @@ class User extends Authenticatable
      */
     public function isPinEnabled()
     {
-        return $this->options()->first()->enable_pin ? true : false;
+        return $this->options->enable_pin ? true : false;
     }
 }

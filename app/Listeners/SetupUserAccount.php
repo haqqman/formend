@@ -26,8 +26,14 @@ class SetupUserAccount
      */
     public function handle(UserRegistered $event)
     {
+        // Create users options record.
         $event->user->options()->create([
             'enable_pin' => true,
+        ]);
+
+        // Create an endpoint for the user...
+        $event->user->endpoint()->create([
+            'key' => genEndpointKey()
         ]);
     }
 }

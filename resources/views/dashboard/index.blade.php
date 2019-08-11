@@ -8,7 +8,10 @@
     <!-- Dashboard Headline -->
     <div class="dashboard-headline">
         <h3>URL Form Endpoint</h3>
-        <span>https://formend.haqqman.com/post <a href="#small-dialog"><i class="icon-material-outline-file-copy"></i></a></span>
+        <span>
+            https://formend.haqqman.com/s/{{ $user->endpoint->key }}
+            <a href="#small-dialog"><i class="icon-material-outline-file-copy"></i></a>
+        </span>
 
         <!-- Breadcrumbs -->
         <nav id="breadcrumbs" class="white">
