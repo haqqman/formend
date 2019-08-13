@@ -22,4 +22,15 @@ class Endpoint extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * An Endpoint can have as much domain as possible
+     * (No limit yet or subscription)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function domains()
+    {
+        return $this->hasMany(Domain::class);
+    }
 }

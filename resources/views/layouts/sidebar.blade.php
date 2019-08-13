@@ -27,8 +27,8 @@
                     </ul>
 
                     <ul data-submenu-title="Configure">
-                        <li class="{{ $active == 'setup-domains' ? 'active' : '' }}">
-                            <a href="setup-domains.html"><i class="icon-line-awesome-globe"></i> Setup Domains</a>
+                        <li class="{{ $active == 'setup-domain' ? 'active' : '' }}">
+                            <a href="{{ route('setup-domain') }}"><i class="icon-line-awesome-globe"></i> Setup Domains</a>
                         </li>
                         <li class="{{ $active == 'manage-domains' ? 'active' : '' }}">
                             <a href="manage-domains.html"><i class="icon-material-outline-settings-input-component"></i> Manage Domains</a>

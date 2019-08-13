@@ -49,19 +49,30 @@ Author URL: https://haqqman.com
 <script src="{{ asset('js/magnific-popup.min.js') }}"></script>
 <script src="{{ asset('js/slick.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+<!-- this would be removed later @TODO -->
 <script>
-    // Snackbar for user status switcher
-    $('#snackbar-user-status label').click(function() {
-        Snackbar.show({
-            text: 'Your status has been changed!',
+    function flashSuccess(message, duration = 3000) {
+        Snackbar ? Snackbar.show({
+            text: message,
             pos: 'bottom-center',
             showAction: false,
             actionText: "Dismiss",
-            duration: 3000,
+            duration: duration,
             textColor: '#fff',
             backgroundColor: '#383838'
-        });
-    });
+        }) : ''
+    }
+    function flashError(message, duration = 3000) {
+        Snackbar ? Snackbar.show({
+            text: message,
+            pos: 'bottom-center',
+            showAction: false,
+            actionText: "Dismiss",
+            duration: duration,
+            textColor: '#fff',
+            backgroundColor: 'red'
+        }) : ''
+    }
 </script>
 @yield('after_script')
 </body>
