@@ -26,7 +26,9 @@ class DomainController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validateRequest($request);
+        // We also need domain names to be unique.
+        $this->validateRequest($request, ['name' => 'required|unique:domains',]);
+
         $data = $request->only(['name', 'email_from', 'email_subject', 'email_primary', 'email_secondary']);
 
         // Create the domain on their endpoint
@@ -49,11 +51,25 @@ class DomainController extends Controller
             ->with('domains', $domains);
     }
 
-    /**
-     * @param Request $request
-     */
-    public function update(Request $request)
+    public function showUpdateForm($id)
     {
+        $domain = Auth::user()->endpoint->domains()->findOrFail($id);
+
+        return view('dashboard.setup-domain')
+            ->with('domain', $domain);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $domain = Auth::user()->endpoint->domains()->findOrFail($id);
+        $this->validateRequest($request);
+
+        $data = $request->except(['_token']);
+        $domain->update($data);
+        session()->flash('domain-updated', true);
+
+        return redirect()->route('setup-domain');
 
     }
 
@@ -61,17 +77,17 @@ class DomainController extends Controller
      * Validates the creation request form.
      *
      * @param Request $request
+     * @param $extra array additional options to check for.
      * @return mixed
      */
-    protected function validateRequest(Request $request)
+    protected function validateRequest(Request $request, $extra = [])
     {
-        return $request->validate([
-            'name' => 'required|unique:domains',
+        return $request->validate(array_merge([
             'email_from' => 'required',
             'email_subject' => 'required',
             'email_primary' => 'required|email',
             'email_secondary' => '',
             'is_active' => 'required',
-        ]);
+        ], $extra));
     }
 }

@@ -59,7 +59,9 @@
                                         <a href="{{ $domain->name }}" class="button ripple-effect" target="_blank">
                                             <i class="icon-line-awesome-globe"></i> {{ $domain->name }}
                                         </a>
-                                        <a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+                                        <a href="{{ route('update-domain', ['id' => $domain->id]) }}" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top">
+                                            <i class="icon-feather-edit"></i>
+                                        </a>
                                         <a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
                                     </div>
                                 </li>

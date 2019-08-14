@@ -20,12 +20,17 @@
 @endsection
 
 @section('dashboard-content')
-    @isset($endpoint)
-        @component('components.domain-form', ['action' => route('setup-domain'), 'endpoint' => $endpoint])
+    @isset($domain)
+        @component('components.domain-form',
+            [
+                'action' => route('update-domain', ['id' => $domain->id]),
+                 'domain' => $domain,
+                 'method' => 'patch'
+            ])
         @endcomponent
     @endisset
-    @empty($endpoint)
-        @component('components.domain-form', ['action' => route('setup-domain'), 'endpoint' => null])
+    @empty($domain)
+        @component('components.domain-form', ['action' => route('setup-domain'), 'domain' => null])
         @endcomponent
     @endempty
 @endsection
@@ -37,6 +42,9 @@
         @endif
         @if(session()->has('domain-created') && session()->get('domain-created'))
             flashSuccess('Domain successfully added!')
-        @ENDIF
+        @endif
+        @if(session()->has('domain-updated') && session()->get('domain-updated'))
+        flashSuccess('Domain successfully updated!')
+        @endif
     </script>
 @endsection
