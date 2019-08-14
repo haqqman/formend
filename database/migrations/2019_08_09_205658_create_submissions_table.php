@@ -17,7 +17,8 @@ class CreateSubmissionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('email')->nullable();
             $table->string('name')->nullable();
-            $table->json('data')->nullable();
+//            $table->json('data')->nullable();
+            $table->longText('data')->nullable();
             $table->unsignedBigInteger('domain_id');
             $table->timestamps();
 
