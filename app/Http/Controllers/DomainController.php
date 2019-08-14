@@ -30,15 +30,23 @@ class DomainController extends Controller
         $data = $request->only(['name', 'email_from', 'email_subject', 'email_primary', 'email_secondary']);
 
         // Create the domain on their endpoint
+        $is_active = $request->get('is_active', 1) == 1 ? true : false;
         Auth::user()->endpoint
             ->domains()
             ->create(array_merge(
                 $data,
-                ['is_active' => $request->get('is_active', 1)]
+                ['is_active' => $is_active]
             ));
 
         session()->flash('domain-created', true);
         return redirect()->route('setup-domain');
+    }
+
+    public function list()
+    {
+        $domains = Auth::user()->endpoint->domains;
+        return view('dashboard.manage-domain')
+            ->with('domains', $domains);
     }
 
     /**

@@ -55,8 +55,8 @@
                             <div class="submit-field">
                                 <h5>Status</h5>
                                 <select class="selectpicker with-border" data-size="7" title="Select Status" name="is_active" required>
-                                    <option value="1" {{ $endpoint ? $endpoint->is_active == true ? 'selected' : '' : '' }}>Enabled</option>
-                                    <option value="0" {{ $endpoint ? $endpoint->is_active == false ? 'selected' : '' : '' }}>Disabled</option>
+                                    <option value="1" {{ $endpoint ? $endpoint->is_active ? 'selected' : '' : '' }}>Enabled</option>
+                                    <option value="0" {{ $endpoint ? !$endpoint->is_active ? 'selected' : '' : '' }}>Disabled</option>
                                 </select>
                             </div>
                         </div>

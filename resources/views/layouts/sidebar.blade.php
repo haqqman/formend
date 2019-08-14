@@ -31,7 +31,7 @@
                             <a href="{{ route('setup-domain') }}"><i class="icon-line-awesome-globe"></i> Setup Domains</a>
                         </li>
                         <li class="{{ $active == 'manage-domains' ? 'active' : '' }}">
-                            <a href="manage-domains.html"><i class="icon-material-outline-settings-input-component"></i> Manage Domains</a>
+                            <a href="{{ route('manage-domains') }}"><i class="icon-material-outline-settings-input-component"></i> Manage Domains</a>
                         </li>
                         <li class="{{ $active == 'email-settings' ? 'active' : '' }}">
                             <a href="email-settings.html"><i class="icon-line-awesome-gear"></i> Email Settings</a>

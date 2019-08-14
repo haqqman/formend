@@ -12,7 +12,7 @@ class Domain extends Model
      * @var array
      */
     protected $guarded = [
-        'is_active',
+
     ];
 
 

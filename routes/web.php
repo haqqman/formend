@@ -38,4 +38,5 @@ Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
     Route::get('/console/setup-domain', 'DomainController@show')->name('setup-domain');
     Route::post('/console/setup-domain', 'DomainController@create');
     Route::patch('/console/setup-domain/{id}', 'DomainController@update');
+    Route::get('/console/manage-domains', 'DomainController@list')->name('manage-domains');
 });
