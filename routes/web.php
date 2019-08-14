@@ -39,5 +39,6 @@ Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
     Route::post('/console/setup-domain', 'DomainController@create');
     Route::get('/console/setup-domain/{id}', 'DomainController@showUpdateForm')->name('update-domain');
     Route::patch('/console/setup-domain/{id}', 'DomainController@update');
+    Route::delete('/console/setup-domain/{id}', 'DomainController@delete');
     Route::get('/console/manage-domains', 'DomainController@list')->name('manage-domains');
 });

@@ -22,7 +22,7 @@
 
                     <ul data-submenu-title="Get Started">
                         <li class="{{ $active == 'dashboard' ? 'active' : '' }}">
-                            <a href="dashboard.html"><i class="icon-line-awesome-home"></i> Dashboard</a>
+                            <a href="{{ route('dashboard') }}"><i class="icon-line-awesome-home"></i> Dashboard</a>
                         </li>
                     </ul>
 
@@ -34,7 +34,7 @@
                             <a href="{{ route('manage-domains') }}"><i class="icon-material-outline-settings-input-component"></i> Manage Domains</a>
                         </li>
                         <li class="{{ $active == 'email-settings' ? 'active' : '' }}">
-                            <a href="email-settings.html"><i class="icon-line-awesome-gear"></i> Email Settings</a>
+                            <a href="#"><i class="icon-line-awesome-gear"></i> Email Settings</a>
                         </li>
                     </ul>
 

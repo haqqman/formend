@@ -31,21 +31,21 @@
         <div class="fun-fact" data-fun-fact-color="#F2AE23">
             <div class="fun-fact-text">
                 <span>Active Domains</span>
-                <h4>2</h4>
+                <h4>{{ number_format($statistic['active_domain']) }}</h4>
             </div>
             <div class="fun-fact-icon"><i class="icon-feather-globe"></i></div>
         </div>
         <div class="fun-fact" data-fun-fact-color="#0675B6">
             <div class="fun-fact-text">
                 <span>Inactive Domains</span>
-                <h4>1</h4>
+                <h4>{{ number_format($statistic['inactive_domain']) }}</h4>
             </div>
             <div class="fun-fact-icon"><i class="icon-feather-link"></i></div>
         </div>
         <div class="fun-fact" data-fun-fact-color="#36bd78">
             <div class="fun-fact-text">
                 <span>Submissions</span>
-                <h4>7,649</h4>
+                <h4>{{ number_format($statistic['submissions']) }}</h4>
             </div>
             <div class="fun-fact-icon"><i class="icon-feather-trending-up"></i></div>
         </div>

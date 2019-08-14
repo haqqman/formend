@@ -44,6 +44,12 @@ class DomainController extends Controller
         return redirect()->route('setup-domain');
     }
 
+    /**
+     * listing all domains user has associated with their
+     * endpoint.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function list()
     {
         $domains = Auth::user()->endpoint->domains;
@@ -51,6 +57,12 @@ class DomainController extends Controller
             ->with('domains', $domains);
     }
 
+    /**
+     * show the update domain form.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showUpdateForm($id)
     {
         $domain = Auth::user()->endpoint->domains()->findOrFail($id);
@@ -60,6 +72,13 @@ class DomainController extends Controller
     }
 
 
+    /**
+     * update a domain at a user's endpoint.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, $id)
     {
         $domain = Auth::user()->endpoint->domains()->findOrFail($id);
@@ -71,6 +90,22 @@ class DomainController extends Controller
 
         return redirect()->route('setup-domain');
 
+    }
+
+    /**
+     * delete a domain from user's endpoint
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function delete($id)
+    {
+        $domain = Auth::user()->endpoint->domains()->findOrFail($id);
+        // delete the domain.
+        $domain->delete();
+
+        session()->flash('domain-deleted', true);
+        return redirect()->route('manage-domains');
     }
 
     /**

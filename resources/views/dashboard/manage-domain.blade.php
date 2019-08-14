@@ -62,7 +62,14 @@
                                         <a href="{{ route('update-domain', ['id' => $domain->id]) }}" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top">
                                             <i class="icon-feather-edit"></i>
                                         </a>
-                                        <a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+                                        <form action="{{ route('update-domain', ['id' => $domain->id]) }}" class="d-inline" method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" role="button" class="button d-inline-block gray ripple-effect ico"
+                                                    title="Remove" data-tippy-placement="top" style="position: relative; top: -10px">
+                                                <i class="icon-feather-trash-2"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </li>
                             @endforeach
@@ -71,6 +78,13 @@
                 </div>
             </div>
         </div>
-
     </div>
+@endsection
+
+@section('after_script')
+    <script>
+        @if(session()->has('domain-deleted') && session()->get('domain-deleted'))
+        flashSuccess('Domain successfully deleted!')
+        @endif
+    </script>
 @endsection
