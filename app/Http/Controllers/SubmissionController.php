@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Domain;
 use App\Endpoint;
-use App\Mail\SubmissionNotificationMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SubmissionNotificationMail;
 use Illuminate\Support\Facades\Response;
 
 class SubmissionController extends Controller
@@ -68,6 +68,13 @@ class SubmissionController extends Controller
         return $scheme.'://'.$host;
     }
 
+    /**
+     * Handle failed submission, such as inactive endpoint, invalid
+     * endpoint, inactive or invalid domain.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
     protected function handleFailedSubmission(Request $request)
     {
         /*
@@ -76,11 +83,24 @@ class SubmissionController extends Controller
         return Response::view('errors.404', [], 404);
     }
 
+    /**
+     * What to do when the request is empty.
+     *
+     * @return array
+     */
     protected function handleEmptyRequest()
     {
         return [];
     }
 
+    /**
+     * Handles notifying user associated with the endpoint domain
+     * about new submission.
+     *
+     * @param Endpoint $endpoint
+     * @param Domain $domain
+     * @param $formData
+     */
     public function notifyEndpointUser(Endpoint $endpoint, Domain $domain, $formData)
     {
         /*

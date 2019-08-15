@@ -41,7 +41,7 @@
 @section('content')
     <p>
         You have a new submission submitted to your endpoint from the associated domain
-        <b><a href="#">{{ 'http://all-event.com' }}</a></b> on 24th Jul, 2019:03:40PM.
+        <b><a href="{{ $domain->name }}">{{ $domain->name }}</a></b> on {{ $domain->created_at->format('d M Y:H:m') }}.
     </p>
     <table class="report-table">
         <thead style="font-weight: bold">
@@ -52,18 +52,12 @@
             </tr>
         </thead>
         <tbody class="report-table__body">
-            <tr>
-                <td class="row-title">Name</td>
-                <td class="row-value">Adedeji Stephen</td>
-            </tr>
-            <tr class="row-even">
-                <td class="row-title">Name</td>
-                <td class="row-value">Adedeji Stephen</td>
-            </tr>
-            <tr>
-                <td class="row-title">Name</td>
-                <td class="row-value">Adedeji Stephen</td>
-            </tr>
+            @foreach($form as $key => $value)
+                <tr class="{{ $loop->even ? 'row-even' : '' }}">
+                    <td class="row-title">{{ $key }}</td>
+                    <td class="row-value">{{ $value }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     <p>

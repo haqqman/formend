@@ -50,8 +50,7 @@ class SubmissionNotificationMail extends Mailable
      */
     public function build()
     {
-        $this->attachCCIfNeeded();
-        return $this
+        return $this->attachCCIfNeeded()
             ->from('no-reply@formend.haqqman.com', $this->domain->email_from)
             ->subject($this->domain->email_subject)
             ->view('mails.submission');
@@ -63,8 +62,8 @@ class SubmissionNotificationMail extends Mailable
      */
     protected function attachCCIfNeeded()
     {
-        $this->domain->email_secondary
+        return $this->domain->email_secondary
             ? $this->cc($this->domain->email_secondary)
-            : null;
+            : $this;
     }
 }
