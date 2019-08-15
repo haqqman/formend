@@ -20,6 +20,7 @@ class CreateSubmissionsTable extends Migration
 //            $table->json('data')->nullable();
             $table->longText('data')->nullable();
             $table->unsignedBigInteger('domain_id');
+            $table->unsignedBigInteger('endpoint_id');
             $table->timestamps();
 
             /*
@@ -27,6 +28,11 @@ class CreateSubmissionsTable extends Migration
              * */
             $table->foreign('domain_id')->references('id')
                 ->on('domains');
+            /*
+             * And a submission is also associated with an endpoint.
+             * */
+            $table->foreign('endpoint_id')->references('id')
+                ->on('endpoints');
         });
     }
 

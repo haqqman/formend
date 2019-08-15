@@ -33,4 +33,9 @@ class Endpoint extends Model
     {
         return $this->hasMany(Domain::class);
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }

@@ -16,17 +16,27 @@ class SubmissionController extends Controller
         if (!$endpoint || ($endpoint && !$endpoint->is_active)) {
             return 'Endpoint is not available';
         }
-
+        /*
+         * Check if the referer (domain) is associated with the endpoint,
+         * and also that the domain is active.
+         * */
         $domain = $endpoint->domains()
             ->where('name', $this->getHostAndScheme($request))
             ->first();
-
         if(!$domain || ($domain && !$domain->is_active)) {
             return 'Domain is not address or not active';
         }
 
-        $data = json_encode($request->toArray());
-        dd(json_decode($data, true));
+        $data = [
+            'name' => $request->get('name', ''),
+            'email' => $request->get('email', ''),
+            'data' => json_encode($request->toArray()),
+            'domain_id' => $domain->id,
+        ];
+        $endpoint->submissions()->create($data);
+
+        return view('submission.success')
+            ->with('callbackUrl', $domain->name);
     }
 
     /**
