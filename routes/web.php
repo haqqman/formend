@@ -42,3 +42,8 @@ Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
     Route::delete('/console/setup-domain/{id}', 'DomainController@delete');
     Route::get('/console/manage-domains', 'DomainController@list')->name('manage-domains');
 });
+
+/*
+ * Capture a form submission to an endpoint
+ * */
+Route::post('/s/{endpoint}', 'SubmissionController@create')->name('submission');
