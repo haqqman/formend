@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain;
 use App\Endpoint;
+use App\Mail\SubmissionNotificationMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Response;
 
 class SubmissionController extends Controller
 {
@@ -14,7 +18,7 @@ class SubmissionController extends Controller
          * Check if endpoint exists and it is valid
          * */
         if (!$endpoint || ($endpoint && !$endpoint->is_active)) {
-            return 'Endpoint is not available';
+            return $this->handleFailedSubmission($request);
         }
         /*
          * Check if the referer (domain) is associated with the endpoint,
@@ -24,7 +28,13 @@ class SubmissionController extends Controller
             ->where('name', $this->getHostAndScheme($request))
             ->first();
         if(!$domain || ($domain && !$domain->is_active)) {
-            return 'Domain is not address or not active';
+            return $this->handleFailedSubmission($request);
+        }
+        /*
+         * Handle empty requests i.e requests with no form names
+         * */
+        if (empty($request->toArray())) {
+            return $this->handleEmptyRequest();
         }
 
         $data = [
@@ -34,6 +44,7 @@ class SubmissionController extends Controller
             'domain_id' => $domain->id,
         ];
         $endpoint->submissions()->create($data);
+        $this->notifyEndpointUser($endpoint, $domain, $request->toArray());
 
         return view('submission.success')
             ->with('callbackUrl', $domain->name);
@@ -55,5 +66,32 @@ class SubmissionController extends Controller
         $host = parse_url($url, PHP_URL_HOST);
 
         return $scheme.'://'.$host;
+    }
+
+    protected function handleFailedSubmission(Request $request)
+    {
+        /*
+         * Return a 404 not found error.
+         * */
+        return Response::view('errors.404', [], 404);
+    }
+
+    protected function handleEmptyRequest()
+    {
+        return [];
+    }
+
+    public function notifyEndpointUser(Endpoint $endpoint, Domain $domain, $formData)
+    {
+        /*
+         * Send a mail to the endpoint user, notifying them
+         * about the new submission they have.
+         * */
+        Mail::to($domain->email_primary)
+            ->send(new SubmissionNotificationMail(
+                $endpoint,
+                $domain,
+                $formData
+            ));
     }
 }

@@ -47,3 +47,10 @@ Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
  * Capture a form submission to an endpoint
  * */
 Route::post('/s/{endpoint}', 'SubmissionController@create')->name('submission');
+
+/*
+ * Testing submission email
+ * */
+Route::get('email', function() {
+    return new \App\Mail\SubmissionNotificationMail();
+});
