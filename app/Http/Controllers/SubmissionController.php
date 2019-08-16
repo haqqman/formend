@@ -36,7 +36,7 @@ class SubmissionController extends Controller
         if (empty($request->toArray())) {
             return $this->handleEmptyRequest();
         }
-
+//dd(config('mail.username'));
         $data = [
             'name' => $request->get('name', ''),
             'email' => $request->get('email', ''),
