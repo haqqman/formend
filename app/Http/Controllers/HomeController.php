@@ -22,7 +22,7 @@ class HomeController extends Controller
                 ->where('is_active', false)
                 ->count(),
 
-            'submissions' => 3420,
+            'submissions' => $user->endpoint->submissions->count(),
         ];
 
         return view('dashboard.index')

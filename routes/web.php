@@ -51,6 +51,4 @@ Route::post('/s/{endpoint}', 'SubmissionController@create')->name('submission');
 /*
  * Testing submission email
  * */
-Route::get('email', function() {
-    return new \App\Mail\SubmissionNotificationMail();
-});
+
