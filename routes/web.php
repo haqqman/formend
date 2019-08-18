@@ -41,6 +41,16 @@ Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
     Route::patch('/console/setup-domain/{id}', 'DomainController@update');
     Route::delete('/console/setup-domain/{id}', 'DomainController@delete');
     Route::get('/console/manage-domains', 'DomainController@list')->name('manage-domains');
+    /*
+     * Console settings
+     * */
+    Route::get('console/settings', 'SettingsController@show')->name('settings');
+    Route::patch('console/settings', 'SettingsController@passwordUpdate')->name('settings.password');
+    Route::patch('console/settings/pin', 'SettingsController@pinUpdate')->name('settings.pin');
+    Route::patch('console/settings/2SA', 'SettingsController@twoStepAuth')->name('settings.twoFA');
+
+    Route::patch('console/endpoint', 'SettingsController@enableEndpoint')->name('enable-endpoint');
+    Route::delete('console/endpoint', 'SettingsController@disableEndpoint')->name('disable-endpoint');
 });
 
 /*
@@ -51,4 +61,13 @@ Route::post('/s/{endpoint}', 'SubmissionController@create')->name('submission');
 /*
  * Testing submission email
  * */
+//Route::get('email', function() {
+//   $endpoint = App\Endpoint::first();
+//
+//   return new \App\Mail\SubmissionNotificationMail($endpoint, $endpoint->domains->first(), [
+//       'Name' => 'Adedeji Stephen',
+//       'email' => 'ionwarez@gmail.com',
+//       'address' => 'Safari, Malete'
+//   ]);
+//});
 

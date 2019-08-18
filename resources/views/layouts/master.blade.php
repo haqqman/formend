@@ -12,6 +12,7 @@ Author URL: https://haqqman.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Deploy, configure and manage form endpoints." />
+    <meta name='X-CSRF' content="{{ csrf_token() }}">
 
     <!-- CSS
     ================================================== -->

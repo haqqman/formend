@@ -99,14 +99,20 @@
                                 </div>
                                 <!-- User Status Switcher -->
                                 <div class="status-switch" id="snackbar-user-status">
-                                    <label class="user-online {{ $user->endpoint->is_active ? 'current-status' : '' }}">Active</label>
-                                    <label class="user-invisible {{ !$user->endpoint->is_active ? 'current-status' : '' }}">Inactive</label>
+                                    <label class="user-online {{ $user->endpoint->is_active ? 'current-status' : '' }}"
+                                           data-url="{{ route('enable-endpoint') }}">
+                                        Active
+                                    </label>
+                                    <label class="user-invisible {{ !$user->endpoint->is_active ? 'current-status' : '' }}"
+                                           data-url="{{ route('disable-endpoint') }}">
+                                        Inactive
+                                    </label>
                                     <!-- Status Indicator -->
                                     <span class="status-indicator" aria-hidden="true"></span>
                                 </div>
                             </div>
                             <ul class="user-menu-small-nav">
-                                <li><a href="settings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
+                                <li><a href="{{ route('settings') }}"><i class="icon-material-outline-settings"></i> Settings</a></li>
                                 <li><a href="{{ route('logout') }}"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
                             </ul>
                         </div>
