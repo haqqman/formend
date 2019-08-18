@@ -3,8 +3,7 @@
     <style>
         .report-table {
             width: 100%;
-            margin: 10px 0;
-            font-size: .9rem;
+            margin: 0;
         }
         .report-table thead {
             font-weight: bold;
@@ -12,26 +11,27 @@
             color: #fff;
         }
         .report-table thead td {
-            padding: 10px;
-        }
-        .report-table__body {
-            border-bottom: 1px solid #8d8d8d;
-            border-right: 1px solid #8d8d8d;
-            border-left: 1px solid #8d8d8d;
+            padding: 0;
         }
         .row-even {
             background-color: #ecf0f1;
         }
         .row-title {
-            padding: 10px;
-            width: 35%;
-            font-weight: bold;
-            border-right: 1px solid #8d8d8d;
+            width: 100%;
             text-transform: capitalize;
+            color: #95a5a6;
         }
         .row-value {
-            padding: 10px;
-            width: 65%;
+            width: 100%;
+            font-weight: bold;
+            padding-bottom: 10px;
+            color: #384041;
+            font-family: 'Cormorant Garamond', serif !important;;
+        }
+        .submission-info {
+            color: #95a5a6;
+            text-align: center;
+            font-size: 1.1em;
         }
     </style>
 @endsection
@@ -40,27 +40,27 @@
 @endsection
 @section('content')
     <p>
-        You have a new submission submitted to your endpoint from the associated domain
-        <b><a href="{{ $domain->name }}">{{ $domain->name }}</a></b> on {{ $domain->created_at->format('d M Y:H:m') }}.
+        <b>Hey there!</b>
     </p>
-    <table class="report-table">
-        <thead style="font-weight: bold">
-            <tr>
-                <td colspan="2">
-                    Submission details
-                </td>
-            </tr>
-        </thead>
+    <p class="border-bottom">
+        You have just received a new submission to your <b>{{ $domain->email_from }}</b> form.
+        Here is the data that was collected.
+    </p>
+    <table class="report-table font-secondary">
         <tbody class="report-table__body">
             @foreach($form as $key => $value)
-                <tr class="{{ $loop->even ? 'row-even' : '' }}">
+                <tr>
                     <td class="row-title">{{ $key }}</td>
+                </tr>
+                <tr>
                     <td class="row-value">{{ $value }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    <p>
-        You are not required to respond to this email.
+    <p class="submission-info border-top font-secondary">
+        Associated domain <br>
+        {{ $domain->name }}. <br>
+        Submission received at {{ now()->format('H:i T M dS, Y') }}
     </p>
 @endsection

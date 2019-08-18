@@ -3,20 +3,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Lato:400,700&display=swap" rel="stylesheet">
     <!-- For development, pass document through inliner -->
     <style type="text/css">
         * {
             margin: 0;
             padding: 0;
             font-size: 100%;
-            font-family: 'Avenir Next', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
             line-height: 1.65;
         }
 
         img { max-width: 100%; margin: 0 auto; display: block; }
 
-        body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; }
+        body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; color: #34495e; font-family: "Lato", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif }
 
         a { color: #005fe6; text-decoration: none; }
 
@@ -37,7 +36,22 @@
             font-weight: bold;
             border-radius: 20px;
         }
-
+        .font-secondary {
+            font-family: 'Cormorant Garamond', serif !important;
+        }
+        .main-content {
+            border-collapse: collapse;
+            border-radius: 7px;
+            border: 1px solid #ecf0f1;
+        }
+        .border-top {
+            padding-top: 15px;
+            border-top: 1px solid #ecf0f1;
+        }
+        .border-bottom {
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
         .button:hover { text-decoration: none; }
 
         h1, h2, h3, h4, h5, h6 { margin-bottom: 20px; line-height: 1.25; }
@@ -80,14 +94,7 @@
         <td class="container">
 
             <!-- Message start -->
-            <table>
-                <tr>
-                    <td align="center" class="masthead">
-
-                        <h4>@yield('header')</h4>
-
-                    </td>
-                </tr>
+            <table class="main-content">
                 <tr>
                     <td class="content">
                         @yield('content')
@@ -103,8 +110,7 @@
             <table>
                 <tr>
                     <td class="content footer" align="center">
-                        <p>Sent by <a href="{{ route('login') }}">{{ config('app.name') }}</a>, 1234 Yellow Brick Road, OZ, 99999</p>
-                        <p><a href="mailto:info@formend.haqqman.com">info@formend.haqqman.com</a> | <a href="#">Unsubscribe</a></p>
+                        &copy; Formend by Haqqman
                     </td>
                 </tr>
             </table>

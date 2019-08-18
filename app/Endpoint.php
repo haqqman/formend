@@ -34,6 +34,11 @@ class Endpoint extends Model
         return $this->hasMany(Domain::class);
     }
 
+    /**
+     * Every endpoint has one or many submission attached to it.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function submissions()
     {
         return $this->hasMany(Submission::class);
