@@ -3,7 +3,25 @@
 "use strict";
 
 $(document).ready(function(){
-	
+    (function() {
+        var data = {
+            _token: $('meta[name="X-CSRF"]').attr('content')
+        }
+
+	    $('label.user-online').on('click', function() {
+	        $.ajax($(this).attr('data-url'), {
+	            method: 'PATCH',
+                data: data,
+            })
+        })
+
+        $('label.user-invisible').on('click', function() {
+            $.ajax($(this).attr('data-url'), {
+                method: 'DELETE',
+                data: data,
+            })
+        })
+    })()
 	/*--------------------------------------------------*/
 	/*  Mobile Menu - mmenu.js
 	/*--------------------------------------------------*/
