@@ -45,16 +45,16 @@
             border-radius: 7px;
             padding: 2px 2px;
             background-color: white;
-            border: 1px solid #8B8B8B;
+            border: 1px solid #EDEDEE;
         }
         .border-top {
             padding-top: 5px;
             margin-top: 44px;
-            border-top: 1px solid #8B8B8B;
+            border-top: 1px solid #EDEDEE;
         }
         .border-bottom {
             padding-bottom: 15px;
-            border-bottom: 1px solid #8B8B8B;
+            border-bottom: 1px solid #EDEDEE;
         }
         .button:hover { text-decoration: none; }
 
@@ -80,7 +80,7 @@
 
         .container .masthead h4 { margin: 0 auto !important; max-width: 90%; text-transform: uppercase; }
 
-        .container .content { background: white; border-radius: 7px; padding: 30px 20px; }
+        .container .content { background: white; border-radius: 7px; padding: 10px 20px; }
 
         .container .content.footer { background: none; padding: 15px 20px; }
 

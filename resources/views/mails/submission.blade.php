@@ -12,16 +12,20 @@
         .row-title {
             width: 100%;
             text-transform: capitalize;
+            font-family: "Roboto", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
         }
         .row-value {
             width: 100%;
             padding-bottom: 10px;
             color: #000;
+            font-family: "Roboto", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
         }
         .submission-info {
             color: #8B8B8B;
             text-align: center;
             font-size: 12px;
+            padding-bottom: 5px;
+            margin-bottom: 0;
         }
     </style>
 @endsection
@@ -51,6 +55,6 @@
     <p class="submission-info border-top">
         Associated Domain <br>
         {{ $domain->name }}. <br>
-        Submission received at {{ now()->format('H:i T M dS, Y') }}
+        Submission received at {{ now()->format('H:i T - M d, Y') }}
     </p>
 @endsection
