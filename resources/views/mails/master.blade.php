@@ -3,9 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width"/>
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Lato:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
     <!-- For development, pass document through inliner -->
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +16,8 @@
 
         img { max-width: 100%; margin: 0 auto; display: block; }
 
-        body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; color: #34495e; font-family: "Lato", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif }
+        body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; color: #34495e;
+            font-family: "Roboto", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; }
 
         a { color: #005fe6; text-decoration: none; }
 
@@ -40,17 +42,19 @@
             font-family: 'Cormorant Garamond', serif !important;
         }
         .main-content {
-            border-collapse: collapse;
             border-radius: 7px;
-            border: 1px solid #ecf0f1;
+            padding: 2px 2px;
+            background-color: white;
+            border: 1px solid #8B8B8B;
         }
         .border-top {
-            padding-top: 15px;
-            border-top: 1px solid #ecf0f1;
+            padding-top: 5px;
+            margin-top: 44px;
+            border-top: 1px solid #8B8B8B;
         }
         .border-bottom {
             padding-bottom: 15px;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid #8B8B8B;
         }
         .button:hover { text-decoration: none; }
 
@@ -66,7 +70,7 @@
 
         h5 { font-size: 16px; }
 
-        p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
+        p, ul, ol { font-weight: normal; margin-bottom: 20px; }
 
         .container { display: block !important; clear: both !important; margin: 0 auto !important; max-width: 580px !important; }
 
@@ -76,11 +80,11 @@
 
         .container .masthead h4 { margin: 0 auto !important; max-width: 90%; text-transform: uppercase; }
 
-        .container .content { background: white; padding: 30px 35px; }
+        .container .content { background: white; border-radius: 7px; padding: 30px 20px; }
 
-        .container .content.footer { background: none; }
+        .container .content.footer { background: none; padding: 15px 20px; }
 
-        .container .content.footer p { margin-bottom: 0; color: #888; text-align: center; font-size: 14px; }
+        .container .content.footer p { margin-bottom: 0; color: #888; text-align: center; }
 
         .container .content.footer a { color: #888; text-decoration: none; font-weight: bold; }
 
@@ -94,13 +98,15 @@
         <td class="container">
 
             <!-- Message start -->
-            <table class="main-content">
-                <tr>
-                    <td class="content">
-                        @yield('content')
-                    </td>
-                </tr>
-            </table>
+            <div class="main-content">
+                <table class="">
+                    <tr>
+                        <td class="content">
+                            @yield('content')
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
         </td>
     </tr>

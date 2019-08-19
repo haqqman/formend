@@ -4,14 +4,7 @@
         .report-table {
             width: 100%;
             margin: 0;
-        }
-        .report-table thead {
-            font-weight: bold;
-            background-color: #3fb660;
-            color: #fff;
-        }
-        .report-table thead td {
-            padding: 0;
+            color: #8B8B8B;
         }
         .row-even {
             background-color: #ecf0f1;
@@ -19,19 +12,16 @@
         .row-title {
             width: 100%;
             text-transform: capitalize;
-            color: #95a5a6;
         }
         .row-value {
             width: 100%;
-            font-weight: bold;
             padding-bottom: 10px;
-            color: #384041;
-            font-family: 'Cormorant Garamond', serif !important;;
+            color: #000;
         }
         .submission-info {
-            color: #95a5a6;
+            color: #8B8B8B;
             text-align: center;
-            font-size: 1.1em;
+            font-size: 12px;
         }
     </style>
 @endsection
@@ -43,7 +33,7 @@
         <b>Hey there!</b>
     </p>
     <p class="border-bottom">
-        You have just received a new submission to your <b>{{ $domain->email_from }}</b> form.
+        You just received a new submission to your <b>{{ $domain->email_from }}</b>.
         Here is the data that was collected.
     </p>
     <table class="report-table font-secondary">
@@ -58,8 +48,8 @@
             @endforeach
         </tbody>
     </table>
-    <p class="submission-info border-top font-secondary">
-        Associated domain <br>
+    <p class="submission-info border-top">
+        Associated Domain <br>
         {{ $domain->name }}. <br>
         Submission received at {{ now()->format('H:i T M dS, Y') }}
     </p>
