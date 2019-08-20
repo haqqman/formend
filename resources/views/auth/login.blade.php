@@ -35,11 +35,6 @@
                 <div class="login-register-page">
                     <!-- Welcome Text -->
                     <div class="welcome-text">
-                        @if($errors->has('authFailed'))
-                            <h4 class="error">Username or password is invalid</h4>
-                        @elseif($errors->has('tooManyLoginAttempts'))
-                            <h4>You have too many login attempt.</h4>
-                        @endif
                         @if(session()->has('loggedOut'))
                             <h4>Hurray! You've been successfully logged out.</h4>
                         @endif
@@ -167,4 +162,13 @@
         </div>
     </div>
     <!-- Sign In Popup / End -->
+@endsection
+@section('after_script')
+    <script>
+        @if($errors->has('authFailed'))
+            flashErrorRight('Username or password is invalid');
+        @elseif($errors->has('tooManyLoginAttempts'))
+            flashErrorRight('You have too many login attempt.');
+        @endif
+    </script>
 @endsection

@@ -37,9 +37,6 @@
                     <!-- Welcome Text -->
                     <div class="welcome-text">
                         <h3>Enter PIN</h3>
-                        @if($errors->has('authFailed'))
-                            <h4>You entered an incorrect PIN.</h4>
-                        @endif
                     </div>
 
                     <!-- Form -->
@@ -64,9 +61,14 @@
             </div>
         </div>
     </div>
-
-
     <!-- Spacer -->
     <div class="margin-top-70"></div>
     <!-- Spacer / End-->
+@endsection
+@section('after_script')
+    <script>
+        @if($errors->has('authFailed'))
+            flashErrorRight('You entered an incorrect PIN.');
+        @endif
+    </script>
 @endsection

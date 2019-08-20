@@ -74,6 +74,17 @@ Author URL: https://haqqman.com
             backgroundColor: 'red'
         }) : ''
     }
+    function flashErrorRight(message, duration = 3000) {
+        Snackbar ? Snackbar.show({
+            text: message,
+            pos: 'bottom-right',
+            showAction: false,
+            actionText: "Dismiss",
+            duration: duration,
+            textColor: '#fff',
+            backgroundColor: 'red'
+        }) : ''
+    }
 </script>
 @yield('after_script')
 </body>
