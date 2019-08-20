@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'webmaster@haqqman.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'noreply@haqqman.com'),
         'name' => env('MAIL_FROM_NAME', 'Formend'),
     ],
 

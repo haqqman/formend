@@ -48,33 +48,47 @@ class SettingsController extends Controller
     public function pinUpdate(Request $request)
     {
         $data = $request->validate([
-            'pin' => 'required|confirmed'
+            'pin' => 'confirmed'
         ]);
 
         $user = Auth::user();
-        $user->pin = Hash::make($data['pin']);
-        $user->save();
+        $enablePinOrNot = $request->has('enable_pin')
+            ? true
+            : false;
 
-        session()->flash('settings.updated', 'PIN successfully updated!');
+        if ($data['pin']) {
+            $user->pin = Hash::make($data['pin']);
+            $user->save();
+        }
+
+        session()->flash('settings.updated', 'PIN changes successfully updated!');
+        /*
+         * We don't want PIN verification to be enabled if the PIN column is
+         * null or the PIN input is null.
+         * */
+        $this->twoStepAuth($enablePinOrNot, $data['pin'] || $user->pin);
         return redirect()->back();
     }
 
+
     /**
-     * Only for setting the enable PIN authentication /
-     * verification process.
+     * Update the Enable Two Step Auth via PIN option.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param bool $option
+     * @param bool $shouldUpdate
+     *
+     * @return boolean
      */
-    public function twoStepAuth(Request $request)
+    public function twoStepAuth(bool $option, bool $shouldUpdate)
     {
         $user = Auth::user();
-        $user->options->enable_pin = $request->has('enable_pin')
-            ? true
-            : false;
-        $user->options->save();
-        session()->flash('settings.updated', 'Two Step Authentication changed!');
-        return redirect()->back();
+
+        if ($shouldUpdate) {
+            $user->options->enable_pin = $option;
+            $user->options->save();
+            return true;
+        }
+        session()->flash('settings.updated', 'No changes was made.');
     }
 
     /**

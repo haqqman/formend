@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title')
+    Formend &mdash; Confirm Identity.
 @endsection
 
 @section('content')
@@ -46,7 +47,8 @@
                         {{ csrf_field() }}
                         <div class="input-with-icon-left">
                             <i class="icon-material-outline-lock"></i>
-                            <input type="password" class="input-text with-border" name="pin" id="PIN" placeholder="123456" maxlength="8" required/>
+                            <input type="password" class="input-text with-border" name="pin" id="PIN"
+                                   placeholder="123456" maxlength="8" required/>
                         </div>
                         <a href="#" class="forgot-pin">Recover PIN</a>
                     </form>

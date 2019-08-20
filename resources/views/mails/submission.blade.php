@@ -54,7 +54,7 @@
     </table>
     <p class="submission-info border-top">
         Associated Domain <br>
-        {{ $domain->name }}. <br>
+        {{ $domain->name }} <br>
         Submission received at {{ now()->format('H:i T - M d, Y') }}
     </p>
 @endsection
