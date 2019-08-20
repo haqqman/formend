@@ -49,7 +49,6 @@ Author URL: https://haqqman.com
 <script src="{{ asset('js/counterup.min.js') }}"></script>
 <script src="{{ asset('js/magnific-popup.min.js') }}"></script>
 <script src="{{ asset('js/slick.min.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
 <!-- this would be removed later @TODO -->
 <script>
     function flashSuccess(message, duration = 3000) {
@@ -86,6 +85,7 @@ Author URL: https://haqqman.com
         }) : ''
     }
 </script>
+<script src="{{ asset('js/custom.js') }}"></script>
 @yield('after_script')
 </body>
 </html>
