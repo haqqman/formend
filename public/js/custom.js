@@ -13,10 +13,10 @@ $(document).ready(function(){
 	            method: 'PATCH',
                 data: data,
                 success: function() {
-	                flashSuccess('Endpoint status set to <b>active</b>!')
+	                flashMessage('Endpoint status set to <b>active</b>!')
                 },
                 error: function() {
-	                flashError('An error occurred while changing status.')
+	                flashMessage('An error occurred while changing status.')
                 }
             })
         })
@@ -26,10 +26,10 @@ $(document).ready(function(){
                 method: 'DELETE',
                 data: data,
                 success: function() {
-                    flashSuccess('Endpoint status set to <b>inactive</b>!')
+                    flashMessage('Endpoint status set to <b>inactive</b>!')
                 },
                 error: function() {
-                    flashError('An error occurred while changing status.')
+                    flashMessage('An error occurred while changing status.')
                 }
             })
         })

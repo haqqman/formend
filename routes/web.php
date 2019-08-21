@@ -61,12 +61,3 @@ Route::post('/s/{endpoint}', 'SubmissionController@create')->name('submission');
 /*
  * Testing submission email
  * */
-
-Route::get('/email', function() {
-    $endpoint =  App\Endpoint::first();
-    return new \App\Mail\SubmissionNotificationMail($endpoint, $endpoint->domains->first(), [
-        'Name' => 'Adedeji Stephen',
-        'Email' => 'ionwarez@gmail.com',
-        'password' => 'gritty763'
-    ]);
-});

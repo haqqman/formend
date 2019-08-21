@@ -38,13 +38,13 @@
 @section('after_script')
     <script>
         @if($errors->any())
-            flashError('An error occurred creating the domain. Check your form fields')
+            flashMessage('An error occurred creating the domain. Check your form fields')
         @endif
         @if(session()->has('domain-created') && session()->get('domain-created'))
-            flashSuccess('Domain successfully added!')
+            flashMessage('Domain successfully added!')
         @endif
         @if(session()->has('domain-updated') && session()->get('domain-updated'))
-        flashSuccess('Domain successfully updated!')
+            flashMessage('Domain successfully updated!')
         @endif
     </script>
 @endsection

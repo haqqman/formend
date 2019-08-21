@@ -107,7 +107,6 @@ class SubmissionController extends Controller
          * Send a mail to the endpoint user, notifying them
          * about the new submission they have.
          * */
-        dd($formData);
         Mail::to($domain->email_primary)
             ->send(new SubmissionNotificationMail(
                 $endpoint,

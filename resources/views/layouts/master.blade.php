@@ -51,7 +51,7 @@ Author URL: https://haqqman.com
 <script src="{{ asset('js/slick.min.js') }}"></script>
 <!-- this would be removed later @TODO -->
 <script>
-    function flashSuccess(message, duration = 3000) {
+    function flashMessage(message, duration = 3000) {
         Snackbar ? Snackbar.show({
             text: message,
             pos: 'bottom-center',
@@ -59,18 +59,7 @@ Author URL: https://haqqman.com
             actionText: "Dismiss",
             duration: duration,
             textColor: '#fff',
-            backgroundColor: '#383838'
-        }) : ''
-    }
-    function flashError(message, duration = 3000) {
-        Snackbar ? Snackbar.show({
-            text: message,
-            pos: 'bottom-center',
-            showAction: false,
-            actionText: "Dismiss",
-            duration: duration,
-            textColor: '#fff',
-            backgroundColor: 'red'
+            backgroundColor: '#79C142'
         }) : ''
     }
     function flashErrorRight(message, duration = 3000) {
@@ -81,7 +70,7 @@ Author URL: https://haqqman.com
             actionText: "Dismiss",
             duration: duration,
             textColor: '#fff',
-            backgroundColor: 'red'
+            backgroundColor: '#79C142'
         }) : ''
     }
 </script>

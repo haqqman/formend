@@ -102,10 +102,10 @@
 @section('after_script')
     <script>
         @if($errors->any())
-            flashError('{{ $errors->first() }}')
+            flashMessage('{{ $errors->first() }}')
         @endif
         @if(session()->has('settings.updated'))
-            flashSuccess('{{ session()->get('settings.updated', 'Action was successful') }}')
+            flashMessage('{{ session()->get('settings.updated', 'Action was successful') }}')
         @endif
     </script>
 @endsection
