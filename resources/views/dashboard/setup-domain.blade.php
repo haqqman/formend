@@ -43,8 +43,5 @@
         @if(session()->has('domain-created') && session()->get('domain-created'))
             flashMessage('Domain successfully added!')
         @endif
-        @if(session()->has('domain-updated') && session()->get('domain-updated'))
-            flashMessage('Domain successfully updated!')
-        @endif
     </script>
 @endsection

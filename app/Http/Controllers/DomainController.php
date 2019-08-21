@@ -88,7 +88,7 @@ class DomainController extends Controller
         $domain->update($data);
         session()->flash('domain-updated', true);
 
-        return redirect()->route('setup-domain');
+        return redirect()->route('manage-domains');
 
     }
 

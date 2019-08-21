@@ -43,7 +43,7 @@
         <tbody class="report-table__body">
             @foreach($form as $key => $value)
                 <tr>
-                    <td class="row-title">{{ $key }}</td>
+                    <td class="row-title">{{ str_replace('_', ' ', $key) }}</td>
                 </tr>
                 <tr>
                     <td class="row-value">{{ $value }}</td>

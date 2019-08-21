@@ -67,7 +67,7 @@ About Haqqman: https://haqqman.com
     <div class="row">
         <div class="col-md-12">
             <div>
-                <img src="{{ asset('img/haqqman-confirmation.svg') }}" width="250px" class="img-responsive" alt="" />
+                <img src="{{ asset('images/haqqman-confirmation.svg') }}" width="250px" class="img-responsive" alt="" />
             </div>
             <h1>Hurray!</h1>
             <p class="lead">Your message has been successfully submitted.</p>

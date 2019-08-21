@@ -86,5 +86,8 @@
         @if(session()->has('domain-deleted') && session()->get('domain-deleted'))
             flashMessage('Domain successfully deleted!')
         @endif
+        @if(session()->has('domain-updated') && session()->get('domain-updated'))
+            flashMessage('Domain successfully updated!')
+        @endif
     </script>
 @endsection
