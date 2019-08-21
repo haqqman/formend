@@ -16,7 +16,7 @@
 
         img { max-width: 100%; margin: 0 auto; display: block; }
 
-        body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; color: #34495e;
+        body, .body-wrap { width: 100% !important; height: 100%; background: #fff; color: #34495e;
             font-family: "Roboto", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; }
 
         a { color: #005fe6; text-decoration: none; }
@@ -37,9 +37,6 @@
             border-width: 10px 20px 8px;
             font-weight: bold;
             border-radius: 20px;
-        }
-        .font-secondary {
-            font-family: 'Cormorant Garamond', serif !important;
         }
         .main-content {
             border-radius: 7px;

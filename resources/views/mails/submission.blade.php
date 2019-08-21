@@ -32,7 +32,7 @@
     You have new submission
 @endsection
 @section('content')
-    <p>
+    <p style="margin-bottom: 4px;">
         <b>Hey there!</b>
     </p>
     <p class="border-bottom">
