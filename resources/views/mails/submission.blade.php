@@ -17,6 +17,7 @@
         .row-value {
             width: 100%;
             padding-bottom: 10px;
+            color: #34495e;
             font-family: "Roboto", "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
         }
         .submission-info {
