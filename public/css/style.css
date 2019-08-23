@@ -2098,7 +2098,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	#header { height: 76px; }
 
 	#logo { border: none; }
-	#logo img { border: none; max-width: 50px; height: auto; }
+	#logo img { border: none; max-width: 50px; height: 80%; }
 
 	header.fullwidth .container {
 		padding: 0 20px;

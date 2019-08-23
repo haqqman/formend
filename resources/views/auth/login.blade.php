@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Formend</h2>
-                    <span>Deploy, configure and manage form endpoints.</span>
+                    <span>Deploy and manage form endpoints.</span>
 
                     <!-- Breadcrumbs -->
                     <nav id="breadcrumbs" class="white">
@@ -38,7 +38,7 @@
                         @if(session()->has('loggedOut'))
                             <h4>Hurray! You've been successfully logged out.</h4>
                         @endif
-                        <h3>Login to manage form endpoints!</h3>
+                        <h3>Login to manage formend</h3>
                     </div>
 
                     <!-- Form -->
