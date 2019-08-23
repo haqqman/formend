@@ -59,7 +59,7 @@ Author URL: https://haqqman.com
             actionText: "Dismiss",
             duration: duration,
             textColor: '#fff',
-            backgroundColor: '#79C142'
+            backgroundColor: '#e74c3c'
         }) : ''
     }
     function flashErrorRight(message, duration = 3000) {
@@ -70,7 +70,7 @@ Author URL: https://haqqman.com
             actionText: "Dismiss",
             duration: duration,
             textColor: '#fff',
-            backgroundColor: '#79C142'
+            backgroundColor: '#e74c3c'
         }) : ''
     }
 </script>
