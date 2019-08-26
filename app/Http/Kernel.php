@@ -62,6 +62,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'ensurePinIsVerified' => \App\Http\Middleware\EnsurePinIsVerified::class,
         'pinIsEnabled' => \App\Http\Middleware\PinEnabled::class,
+        'checkForSpam' => \App\Http\Middleware\SpamCheckerMiddleware::class,
     ];
 
     /**
