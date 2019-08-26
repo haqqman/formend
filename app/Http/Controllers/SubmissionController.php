@@ -40,11 +40,11 @@ class SubmissionController extends Controller
         $data = [
             'name' => $request->get('name', ''),
             'email' => $request->get('email', ''),
-            'data' => json_encode($request->toArray()),
+            'data' => json_encode($request->except(['s-verify'])),
             'domain_id' => $domain->id,
         ];
         $endpoint->submissions()->create($data);
-        $this->notifyEndpointUser($endpoint, $domain, $request->toArray());
+        $this->notifyEndpointUser($endpoint, $domain, $request->except(['s-verify']));
 
         return view('submission.success')
             ->with('callbackUrl', $domain->name);
