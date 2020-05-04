@@ -57,7 +57,7 @@ Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
  * Capture a form submission to an endpoint
  * */
 Route::post('/s/{endpoint}', 'SubmissionController@create')
-    ->middleware('checkForSpam')
+    ->middleware(['honeypot', 'gCaptcha'])
     ->name('submission');
 
 /*
