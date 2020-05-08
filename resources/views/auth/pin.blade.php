@@ -3,6 +3,21 @@
     Formend &mdash; Confirm Identity.
 @endsection
 
+@push('css')
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+@endpush
+
 @section('content')
     <!-- Content
 ================================================== -->
@@ -44,8 +59,8 @@
                         {{ csrf_field() }}
                         <div class="input-with-icon-left">
                             <i class="icon-material-outline-lock"></i>
-                            <input type="password" class="input-text with-border" name="pin" id="PIN"
-                                   placeholder="123456" maxlength="8" required/>
+                            <input type="number" class="input-text with-border" name="pin" id="PIN"
+                                   placeholder="******" maxlength="8" required/>
                         </div>
                         <a href="#" class="forgot-pin">Recover PIN</a>
                     </form>
@@ -65,10 +80,10 @@
     <div class="margin-top-70"></div>
     <!-- Spacer / End-->
 @endsection
-@section('after_script')
+@push('scripts')
     <script>
         @if($errors->has('authFailed'))
-            flashErrorRight('You entered an incorrect PIN.');
+        flashErrorRight('You entered an incorrect PIN.');
         @endif
     </script>
-@endsection
+@endpush

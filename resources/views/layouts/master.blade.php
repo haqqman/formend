@@ -5,7 +5,6 @@ Author URL: https://haqqman.com
 <!doctype html>
 <html lang="en">
 <head>
-
     <!-- Basic Page Needs
     ================================================== -->
     <title>@yield('title')</title>
@@ -26,6 +25,7 @@ Author URL: https://haqqman.com
     <link href="//fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     @yield('headers')
     @yield('after_style')
+    @stack('css')
 </head>
 <body>
 <div id="wrapper">
@@ -77,5 +77,6 @@ Author URL: https://haqqman.com
 </script>
 <script src="{{ asset('js/custom.js') }}"></script>
 @yield('after_script')
+@stack('scripts')
 </body>
 </html>

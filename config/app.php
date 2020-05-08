@@ -124,6 +124,16 @@ return [
     'cipher' => 'AES-256-CBC',
 
     /*
+     * Google Recaptcha service configurations.
+     * Ensure the keys are provided in the .env file.
+     * */
+    'recaptcha_url' => env('RECAPTCHA_URL', 'https://www.google.com/recaptcha/api/siteverify'),
+
+    'recaptcha_secret_key' => env('RECAPTCHA_SECRET_KEY', ''),
+
+    'recaptcha_site_key' => env('RECAPTCHA_SITE_KEY', ''),
+
+    /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
