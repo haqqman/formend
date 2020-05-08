@@ -80,7 +80,7 @@
                         <div class="header-notifications-trigger">
                             <a href="#">
                                 <div class="user-avatar status-online">
-                                    <img src="{{ asset('images/haqqman-avatar.jpg') }}" alt="">
+                                    <img src="{{ asset('images/logo-avatar.jpg') }}" alt="">
                                 </div>
                             </a>
                         </div>
@@ -91,7 +91,7 @@
                                 <!-- User Name / Avatar -->
                                 <div class="user-details">
                                     <div class="user-avatar status-online">
-                                        <img src="{{ asset('images/haqqman-avatar.jpg') }}" alt="">
+                                        <img src="{{ asset('images/logo-avatar.jpg') }}" alt="">
                                     </div>
                                     <div class="user-name">
                                         Formend Manager <span>Haqqman Webmaster</span>
