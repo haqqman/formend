@@ -29,6 +29,8 @@ class HoneyPotMiddleware
 
         if ($honeypot_trap)
             return abort(404);
+        // remove honeypot field
+        unset($request['_gotcha']);
 
         return $next($request);
     }

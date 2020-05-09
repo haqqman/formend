@@ -13,7 +13,7 @@ Route::get('/', function () {
  * that are not yet logged in.
  *
  * */
-Route::namespace('Auth')->group(function() {
+Route::group(['namespace' => 'Auth'], function() {
     Route::get('/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/login', 'LoginController@login');
 
@@ -25,7 +25,7 @@ Route::namespace('Auth')->group(function() {
  * verification enabled are redirected here until they verify their pin
  *
  * */
-Route::middleware(['auth', 'pinIsEnabled'])->namespace('Auth')->group(function() {
+Route::group(['middleware' => ['auth', 'pinIsEnabled'], 'namespace' => 'Auth'],function() {
     Route::get('/verify-pin', 'PinController@showForm')->name('pin-verification');
     Route::post('/verify-pin', 'PinController@verify');
 });
@@ -33,26 +33,27 @@ Route::middleware(['auth', 'pinIsEnabled'])->namespace('Auth')->group(function()
 /*
  * Authenticated users route.
  * */
-Route::middleware(['auth', 'ensurePinIsVerified'])->group(function() {
-    Route::get('/console', 'HomeController@dashboard')->name('dashboard');
-    Route::get('/console/setup-domain', 'DomainController@show')->name('setup-domain');
-    Route::post('/console/setup-domain', 'DomainController@create');
-    Route::get('/console/setup-domain/{id}', 'DomainController@showUpdateForm')->name('update-domain');
-    Route::patch('/console/setup-domain/{id}', 'DomainController@update');
-    Route::delete('/console/setup-domain/{id}', 'DomainController@delete');
-    Route::get('/console/manage-domains', 'DomainController@list')->name('manage-domains');
+Route::group(['middleware' => ['auth', 'ensurePinIsVerified'], 'prefix' => 'console'], function () {
+    Route::get('/', 'HomeController@dashboard')->name('dashboard');
+    Route::get('/setup-domain', 'DomainController@show')->name('setup-domain');
+    Route::post('/setup-domain', 'DomainController@create');
+    Route::get('/setup-domain/{id}', 'DomainController@showUpdateForm')->name('update-domain');
+    Route::patch('/setup-domain/{id}', 'DomainController@update');
+    Route::delete('/setup-domain/{id}', 'DomainController@delete');
+    Route::get('/manage-domains', 'DomainController@list')->name('manage-domains');
     /*
      * Console settings
      * */
-    Route::get('console/settings', 'SettingsController@show')->name('settings');
-    Route::patch('console/settings', 'SettingsController@passwordUpdate')->name('settings.password');
-    Route::patch('console/settings/pin', 'SettingsController@pinUpdate')->name('settings.pin');
-    Route::patch('console/settings/2SA', 'SettingsController@twoStepAuth')->name('settings.twoFA');
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', 'SettingsController@show')->name('settings');
+        Route::patch('/', 'SettingsController@passwordUpdate')->name('settings.password');
+        Route::patch('/pin', 'SettingsController@pinUpdate')->name('settings.pin');
+        Route::patch('/2SA', 'SettingsController@twoStepAuth')->name('settings.twoFA');
+    });
 
-    Route::patch('console/endpoint', 'SettingsController@enableEndpoint')->name('enable-endpoint');
-    Route::delete('console/endpoint', 'SettingsController@disableEndpoint')->name('disable-endpoint');
+    Route::patch('/endpoint', 'SettingsController@enableEndpoint')->name('enable-endpoint');
+    Route::delete('/endpoint', 'SettingsController@disableEndpoint')->name('disable-endpoint');
 });
-
 /*
  * Capture a form submission to an endpoint
  * */
