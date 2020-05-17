@@ -14852,7 +14852,7 @@ ul.dashboard-box-list > li:hover {
 	/* Main Font */
 	body, h1, h2, h3, h4, h5, h6,  input[type="text"], input[type="password"], input[type="email"],
 	textarea, select, input[type="button"], input[type="submit"], button, body .pac-container
-	{ font-family: "Oxygen", sans-serif; text-transform: none; }
+	{ font-family: "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: none; }
 
 	/* Headlines */
 	h1, h2, h3, h4, h5, h6 {
