@@ -1,26 +1,21 @@
-<!--
-Organization: Haqqman
-Author URL: https://haqqman.com
--->
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Basic Page Needs
-    ================================================== -->
+    <!-- Basic Page Needs -->
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Deploy, configure and manage form endpoints." />
+	<meta name="author" content="Haqqman.Agency, agency@haqqman.com">
+	<meta name="designer" content="Abdulhaqq Sule">
     <meta name='X-CSRF' content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" href="{{ asset('favicon.png') }}">
 
-    <!-- CSS
-    ================================================== -->
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/green.css') }}">
 
-    <!-- CSS
-    ================================================== -->
+    <!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Oxygen:300,400,500,600,700" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     @yield('headers')
@@ -37,6 +32,7 @@ Author URL: https://haqqman.com
     @yield('content')
 </div>
 @yield('after_content')
+
 <!-- Scripts -->
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('js/jquery-migrate-3.0.0.min.js') }}"></script>
